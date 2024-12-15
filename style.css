@@ -1,0 +1,943 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    outline: none;  /* Remove default outline on elements */
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10vh; /* Prevent content from hiding behind navbar */
+}
+
+/* Adjust section padding */
+section {
+    padding-top: 10vh; /* Prevent content from hiding behind the navbar */
+    margin-top: 20px;   /* Add extra margin to avoid headings overlapping */
+}
+
+ #home, #about, #services, #contact {
+    padding-top: 10vh; /* Ensure each section has enough space at the top */
+}
+
+h2, h3 {
+    margin-top: 20px; /* Optional, for extra spacing for headings */
+}
+
+/* Navigation styles */
+nav {
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    transition: top 0.3s; /* Smooth transition when navbar disappears or appears */
+    z-index: 9999;
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between; /* Aligns logo to the left and links to the right */
+    align-items: center;
+    padding: 0 15px;
+}
+
+.logo {
+    color: #b74b4b;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hamburg,
+.cancel {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: white;
+    display: none;
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+}
+
+.nav-container .links {
+    display: flex;
+}
+
+.nav-container .links a {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear;
+    border: none;
+}
+
+/* Add underline effect when hovering over links */
+.nav-container .links a::before {
+    position: relative;
+    content: "";
+    bottom: -3px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #b74b4b;
+    transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before {
+    width: 100%;
+}
+
+.nav-container .links a:hover {
+    color: #b74b4b;
+}
+
+/* On smaller screens (mobile/tablet) */
+@media (max-width: 840px) {
+    .nav-container .links {
+        display: none; /* Hide links on mobile */
+    }
+
+    .hamburg {
+        display: block; /* Show hamburger icon on mobile */
+    }
+}
+
+
+
+/* Dropdown menu for small screens */
+/* Dropdown menu for small screens */
+.dropdown {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 30%;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    border-bottom: white;
+    transition: left 0.3s ease-in-out;
+}
+
+.dropdown .cancel {
+    position: absolute;
+    top: 15px;
+    left: 70%;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+}
+
+.dropdown .links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+
+.dropdown .links a {
+    padding: 15px 40px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s color;
+}
+
+.dropdown .links a:hover {
+    color: red;
+}
+
+/* Main Section */
+section {
+    width: 100%;
+}
+
+.main-container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-container .image {
+    width: 500px;
+    height: 80vh;
+    border-radius: 15px 30px;
+    overflow: hidden;
+    box-shadow: 0 0 50px #238ee5;
+}
+
+.main-container .image img {
+    width: 100%;
+}
+
+.main-container .content {
+    color: white;
+    width: 40%;
+}
+
+.content h1 {
+    font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+}
+
+.content h1 span {
+    color: #b74b4b;
+    text-shadow: 0 0 10px #b74b4b;
+}
+
+.content .typewriter {
+    font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+    font-weight: 600;
+}
+
+.content .typewriter-text {
+    color: #b74b4b;
+    text-shadow: 0 0 10px #b74b4b;
+}
+
+.content p {
+    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
+    margin: 10px 0;
+}
+
+.social-links i {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: transparent;
+    border: 1px solid white;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    margin: 0 10px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.social-links i:hover {
+    background-color: #b74b4b;
+    transform: scale(1.2);
+}
+
+.content button {
+    width: 50%;
+    height: 6vh;
+    margin: 30px;
+    background-color: #b74b4b;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 120%;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s linear;
+}
+
+.content button:hover {
+    scale: 1.1;
+    color: #b74b4b;
+    border: 2px solid #b74b4b;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #b74b4b;
+}
+
+@media (max-width:884px) {
+    nav .logo {
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 2.5rem;
+    }
+
+    .main-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-container .links {
+        display: none;
+    }
+
+    .hamburg,
+    .cancel {
+        display: block;
+        
+    }
+
+    .main-container .content {
+        width: 80%;
+    }
+
+    .social-links i {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.5rem;
+    }
+
+    .main-container .image {
+        z-index: -1;
+        width: 50%;
+        height: 50%;
+    }
+}
+
+
+/* Skills Section */
+#skills {
+    padding: 50px 0;
+    background-color: black;
+}
+
+.skills-container {
+    text-align: center;
+}
+
+.skills-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #b74b4b;
+    text-shadow: 0 0 10px #b74b4b;
+}
+
+.skill-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 255, 0.3);
+    color: white;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #b74b4b;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 255, 0.4);
+    background-color: #b74b4b;
+    color: black;
+}
+
+.card:hover h3, .card:hover p {
+    color: white;
+}
+
+/* Projects Section */
+#projects {
+    padding: 50px 0;
+    background-color: black;
+}
+.projects-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #b74b4b;
+    text-shadow: 0 0 10px #b74b4b;
+}
+.projects-container {
+
+    text-align: center;
+}
+
+.project-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.project-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #512da8;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.project-btn:hover {
+    background-color: #673ab7;
+}
+
+/* About Section */
+#about {
+    padding: 50px 20px;
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    color: #b74b4b;
+    text-shadow: 0 0 10px #b74b4b;
+    margin-bottom: 30px;
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#about p strong {
+    color: #b74b4b;
+}
+
+/* Contact Section */
+#contact {
+    padding: 50px 0;
+    background-color: #111;
+    color: white;
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 2.5rem;
+    color: #b74b4b;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-container label {
+    font-size: 1.2rem;
+    color: #ccc;
+    align-self: flex-start;
+    margin-left: 20px;
+}
+
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: white;
+    transition: 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    outline: none;
+    border-color: #b74b4b;
+    box-shadow: 0 0 5px rgba(183, 75, 75, 0.7);
+}
+
+.contact-container textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-container button {
+    width: 50%;
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #b74b4b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 20px;
+}
+
+.contact-container button:hover {
+    background-color: transparent;
+    color: #b74b4b;
+    border: 2px solid #b74b4b;
+    box-shadow: 0 0 20px #b74b4b;
+}
+
+.contact-links a {
+    display: inline-block;
+    margin: 15px 0;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid #b74b4b;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+
+.contact-links a:hover {
+    background-color: #b74b4b;
+    color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 840px) {
+    nav .logo {
+        position: absolute;
+        top: 16px;
+        left: 15px;
+        font-size: 3rem;
+    }
+
+    .nav-container .links {
+        display: none;
+    }
+
+    .main-container {
+        flex-direction: column;
+        
+    }
+
+    .main-container .content {
+        font-size: 1.5rem;
+        margin-top: 120%;
+        width: 90%;
+    }
+
+    .content h1 span{
+        font-size: 4rem;
+    }
+
+    .content p{
+    font-size: 1.3rem;
+    }
+
+    .social-links{
+        display: inline-flex;
+        justify-content: start;
+        align-items: center;
+        font-size: 5rem;
+        width: 3rem;
+        height: 3rem;
+        margin: 5px 10px;
+        border-radius: 100%;
+       
+
+    }
+
+    .main-container .image {
+        margin-bottom: 20%;
+        position: absolute;
+        width: 80%;
+        height: auto;
+    }
+
+    .skills-container{
+        width: 100%;
+        margin-top: 50%;
+    }
+
+    .skills-container h2{
+        font-size: 4rem;
+    }
+
+    .skill-cards{
+        justify-content: space-evenly;
+    }
+
+    .card{
+        width: 300px;
+        font-size: 1.5rem;
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+        text-decoration: underline;
+        margin-bottom: 10px;
+    }
+    
+    .card p {
+        font-size: 1.3rem;
+        color: #555;
+    }
+
+    .projects-container h2{
+        font-size: 3.3rem;
+    }
+
+    #about h2{
+        font-size: 3.5rem;
+    }
+
+    #about p{
+        font-size: 1.5rem;
+        text-align: start;
+    }
+
+    .contact-container h2{
+        font-size: 3.5rem;
+    }
+
+    .contact-container p{
+        font-size: 1.8rem;
+    }
+
+    .contact-container label{
+        font-size: 1.7rem;
+    }
+  
+    .contact-container input,
+    .contact-container textarea {
+        width: 100%;
+        font-size: 1.5rem;
+
+    }
+
+    .contact-container button {
+      width: 70%;
+      font-size: 2rem;
+    }
+
+    .contact-links a {
+        font-size: 2rem;
+    }
+
+    .contact-links h3{
+        font-size: 1.5rem;
+        justify-content: center;
+    }
+
+    
+}
+
+@media (max-width: 440px) {
+    .nav-container{
+        justify-content: center;
+    }
+    nav .logo{
+        font-size: 2.5rem;
+    }
+    .content h1 span{
+        font-size: 2.5rem;
+    }
+    .main-container .image {
+        position: absolute;
+       
+        height: auto;
+    }
+    .main-container .content {
+        width: 90%;
+        margin-top: 150%;
+    }
+
+    .content button {
+        width: 60%;
+        margin-top: 20px;
+    }
+    .skills-container{
+        margin-top: 180%;
+    }
+
+    .skills-container h2{
+        font-size: 3rem;
+    }
+
+    .social-links i {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size:2rem;
+    }
+
+    .dropdown {
+        width: 50%;
+    }
+    
+    #about p{
+        font-size: 1.3rem;
+        text-align: start;
+    }
+    .contact-container{
+        margin-top: 0;
+        animation: none !important;
+    }
+
+    .contact-container label{
+        animation: none !important;
+    }
+
+    .contact-container h2{
+        font-size: 2.5rem;
+    }
+    .contact-container button{
+        font-size: 1.5rem;
+    }
+
+    .contact-container p{
+        font-size: 1.5rem;
+    }
+
+    .contact-container label{
+        font-size: 1.3rem;
+    }
+
+    .contact-links a{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Disable AOS fade-up animation in mobile view */
+    .link[data-aos="fade-up"],
+    .card[data-aos="fade-up"],
+    .project-cards .card[data-aos="fade-up"],
+    .about-container p[data-aos="fade-up"],
+    .contact-container .contact-form[data-aos="fade-up"],
+    .contact-links a[data-aos="fade-up"] {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Ensure the contact form stays visible on mobile */
+@media only screen and (max-width: 768px) {
+    /* Adjust the contact form's container */
+    .contact-container {
+        display: block; /* Ensure it's visible */
+        padding: 10px; /* Add some padding for mobile devices */
+        width: 100%; /* Make sure it doesn't overflow */
+        box-sizing: border-box; /* Ensure padding doesn't overflow */
+    }
+
+    .contact-form {
+        width: 100%; /* Full width on mobile */
+        padding: 10px; /* Add some padding for better touch interaction */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%; /* Make input fields full-width */
+        padding: 10px; /* Padding for better touch targets */
+        margin-bottom: 10px; /* Space between fields */
+    }
+
+    .contact-form button {
+        width: 100%; /* Make button full-width */
+        padding: 12px; /* More padding for better touch interaction */
+    }
+}
+
+@media (max-width: 840px) {
+    .nav-container .links {
+        display: none;
+    }
+
+    .hamburg, .cancel {
+        display: block;
+    }
+
+    /* Dropdown styling */
+    .dropdown {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; /* Ensure it covers the full screen */
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        padding: 2rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        transform: translateX(-100%); /* Start off-screen to the left */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    .dropdown.active {
+        display: block;
+        transform: translateX(0); /* Move into view when active */
+    }
+
+    .dropdown .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .dropdown .links a {
+        margin: 1rem 0;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+    }
+
+    .dropdown .links a:hover {
+        background-color: #b74b4b;
+        color: white;
+        transform: translateX(10px);
+    }
+
+    /* Cancel button positioning */
+    .cancel {
+        font-size: 2rem;
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        z-index: 10000;
+    }
+
+    .cancel:hover {
+        color: #ff5733;
+    }
+}
+@media (max-width: 840px) {
+    /* Ensure the nav container is visible and adjusted */
+    .nav-container .links {
+        display: none; /* Hide the default nav links */
+    }
+
+    .hamburg, .cancel {
+        display: block;
+    }
+
+    /* Dropdown styling */
+    .dropdown {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; /* Ensure it covers the full screen */
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        padding: 2rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        transform: translateX(-100%); /* Start off-screen to the left */
+        transition: transform 0.3s ease-in-out; /* Smooth transition */
+    }
+
+    .dropdown.active {
+        display: block;
+        transform: translateX(0); /* Move into view when active */
+    }
+
+    .dropdown .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .dropdown .links a {
+        margin: 1rem 0;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+    }
+
+    .dropdown .links a:hover {
+        background-color: #b74b4b;
+        color: white;
+        transform: translateX(10px);
+    }
+
+    /* Cancel button positioning */
+    .cancel {
+        font-size: 2rem;
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        z-index: 10000;
+    }
+
+    .cancel:hover {
+        color: #ff5733;
+    }
+}
+
+@media (min-width: 841px) {
+    /* For laptop and desktop view, hide the dropdown */
+    .hamburg,
+    .dropdown {
+        display: none; /* Hide hamburger and dropdown on larger screens */
+    }
+}
+
